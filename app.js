@@ -29,6 +29,13 @@ new Vue({
 		},
 		specialAttack: function() {
 
+			const yourDamage = generateDamage(3), monsterDamage = generateDamage(30);
+
+			this.healthYou -= yourDamage; this.healthMonster -= monsterDamage;
+
+			function generateDamage(max) {
+				return Math.floor(Math.random() * max) + 1;
+			}
 		},
 		heal: function() {
 
