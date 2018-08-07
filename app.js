@@ -23,6 +23,9 @@ new Vue({
 					this.restart();
 				}, 2000);
 			}
+
+			if(value > 100)
+				this.healthYou = 100;
 		},
 		healthMonster: function(value) {
 			if(value <= 0) {
