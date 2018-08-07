@@ -7,10 +7,16 @@ new Vue({
 			background: 'green',
 			margin: 0, 
 			color: 'white'
-		}
+		},
+		gaveUp: false
 	},
 	methods: {
-
+		restart: function() {
+			
+			this.gaveUp = false;
+			this.healthMonster = 100;
+			this.healthYou = 100;
+		}
 	}
 
 });
