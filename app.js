@@ -19,26 +19,24 @@ new Vue({
 		},
 		attack: function() {
 
-			const yourDamage = generateDamage(), monsterDamage = generateDamage();
+			const yourDamage = this.generateRandomInt(20), monsterDamage = this.generateRandomInt(20);
 			
 			this.healthYou -= yourDamage; this.healthMonster -= monsterDamage;
 
-			function generateDamage() {
-				return Math.floor(Math.random() * 20) + 1;
-			}
 		},
 		specialAttack: function() {
 
-			const yourDamage = generateDamage(3), monsterDamage = generateDamage(30);
+			const yourDamage = this.generateRandomInt(3), monsterDamage = this.generateRandomInt(30);
 
 			this.healthYou -= yourDamage; this.healthMonster -= monsterDamage;
-
-			function generateDamage(max) {
-				return Math.floor(Math.random() * max) + 1;
-			}
 		},
 		heal: function() {
+			const heal = this.generateRandomInt(20), yourDamage = this.generateRandomInt(20);
 
+			this.healthYou += heal - yourDamage;
+		},
+		generateRandomInt: function(max) {
+			return Math.floor(Math.random() * max) + 1;
 		}
 	}
 
