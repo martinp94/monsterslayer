@@ -15,6 +15,25 @@ new Vue({
 			'.log ul .monster-turn': false
 		}
 	},
+	watch: {
+		healthYou: function(value) {
+			if(value <= 0) {
+				alert("MONSTER WINS");
+				setTimeout(() => {
+					this.restart();
+				}, 2000);
+			}
+		},
+		healthMonster: function(value) {
+			if(value <= 0) {
+				alert("YOU WIN");
+				setTimeout(() => {
+					this.restart();
+				}, 2000);
+				
+			}
+		}
+	},
 	methods: {
 		restart: function() {
 			
