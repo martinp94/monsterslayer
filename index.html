@@ -45,8 +45,17 @@
     <section class="row log">
         <div class="small-12 columns">
             <ul>
-                <li>
+                <li v-for="item in log">
+                        
+                    <section v-if="item.type === 'attack'">
+                        <p class="monster-turn"> MONSTER HITS PLAYER FOR {{ item.playerDmg }} </p>
+                        <p class="player-turn"> PLAYER HITS MONSTER FOR {{ item.monsterDmg }} </p>
+                    </section>
 
+                    <section v-else>
+                        <p class="monster-turn"> MONSTER HITS PLAYER FOR {{ item.playerDmg }} </p>
+                        <p class="player-turn"> PLAYER HEALS HIMSELF FOR {{ item.playerHeal }} </p>
+                    </section>
                 </li>
             </ul>
         </div>
